@@ -98,8 +98,12 @@ export default {
         },
         edatMitjana(){
             let totalEdats = 0
-            this.persones.forEach()
 
+            this.persones.forEach(
+                (persona, posicio, array)=>{
+                    totalEdats += persona.edat
+                }
+            )
             return totalEdats/this.persones.length
         }
     }
