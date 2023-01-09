@@ -2,23 +2,36 @@
     <div>
         <div v-for="(persona, pos) in persones" :key="'persona' + pos">
             {{ persona.nom }} - {{ persona.edat }}
-            <!-- Edat més gran: 
-        <br>
-        Edat més petita:
-        <br>
-        Mitjana d'edat: -->
         </div>
         <div>
+            <v-text-field v-model="nom" label="nom"></v-text-field>
+            <v-text-field v-model="nom" label="edat"></v-text-field>
+        </div>
+        <div>
+            <v-btn @click="ordenarAZ()">a to z</v-btn>
+            <v-btn @click="ordenarZA()">z to a</v-btn>
+            <v-btn @click="ordenarEdatAsc()">Edat Ascendent</v-btn>
+            <v-btn @click="ordenarEdatDesc()">Edat Descendent</v-btn>
+
+            <br>
+            Edat més gran: {{ edatMesGran }} anys
+            <br>
+            Edat més petita: {{ edatMesPetita }} anys
+            <br>
+            Mitjana d'edat: {{ edatMitjana }}
+
+        </div>
+
+        <!-- <div> 
             <v-btn @click="ordenarAZ()">a to z</v-btn>
             <v-btn @click="ordenarZA()">z to a</v-btn>
         </div>
         <div>
             <v-btn @click="edatAsc()">edat ascendent</v-btn>
             <v-btn @click="edatDesc()">edat descendent</v-btn>
-        </div>
-    </div>
-    <div></div>
+        </div>-->
 
+    </div>
     <!-- Creant els botons en divs diferents, un queda a sota 
     de l'altre mentre que en el mateix div queden de costat -->
 </template>
@@ -35,6 +48,9 @@ export default {
         }
     },
     methods: {
+        afegeixHttps(url) {
+            return "https://" + url
+        },
         ordenarAZ() {
             this.persones.sort(
                 (a, b) => {
@@ -96,15 +112,15 @@ export default {
             )
             return minim
         },
-        edatMitjana(){
+        edatMitjana() {
             let totalEdats = 0
 
             this.persones.forEach(
-                (persona, posicio, array)=>{
+                (persona, posicio, array) => {
                     totalEdats += persona.edat
                 }
             )
-            return totalEdats/this.persones.length
+            return totalEdats / this.persones.length
         }
     }
 }
