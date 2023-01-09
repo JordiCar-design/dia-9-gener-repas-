@@ -3,6 +3,7 @@
     <v-col>
       <h1>Repàs</h1>
       <exemple-sort></exemple-sort>
+      <exemple-persones></exemple-persones>
     </v-col>
   </v-container>
 </template>

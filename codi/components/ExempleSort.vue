@@ -40,17 +40,17 @@ export default{
             this.edats.sort(
                 (a, b)=> {
                     console.log(a,b)
-                    contador++
                     return b - a 
                 },
             )
         },
         ordenarAscendent(){
+            let contador = 0
             this.edats.sort(
                     (a, b)=> {
                         console.log(a,b)
                         contador--
-                        return b + a
+                        return a - b
                 }
             )
             console.log("S'ha executat "+contador+" cops")
