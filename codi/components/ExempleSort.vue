@@ -1,6 +1,13 @@
 <template>
     <div>
         <h3>Exemple sort</h3>
+        <v-btn @click="ordenarDescendent()">
+        ordenar Descendent
+        </v-btn>
+        <v-btn @click="ordenarAscendent()">
+            ordenar Ascendent
+
+        </v-btn>
         <pre>
             {{ edats }}
         </pre>
@@ -26,6 +33,27 @@ export default{
         return {
             // Estat del component
             edats: null
+        }
+    },
+    methods:{
+        ordenarDescendent(){
+            this.edats.sort(
+                (a, b)=> {
+                    console.log(a,b)
+                    contador++
+                    return b - a 
+                },
+            )
+        },
+        ordenarAscendent(){
+            this.edats.sort(
+                    (a, b)=> {
+                        console.log(a,b)
+                        contador--
+                        return b + a
+                }
+            )
+            console.log("S'ha executat "+contador+" cops")
         }
     }
 }
